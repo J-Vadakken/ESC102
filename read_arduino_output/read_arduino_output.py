@@ -7,12 +7,17 @@ def main_fcn():
     while True:
         arduino_data = arduino.readline()
         decoded_values = str(arduino_data[0:len(arduino_data)].decode("utf-8"))
-        list_values = decoded_values.split(" | ")
+        list_values = decoded_values
+
+        if list_values[0] == "1":
+            print("FIX YOUR POSTURE")
+        else:
+            print("GOOD POSTURE!")
 
         print(f"Collected readings from Arduino: {list_values}")
 
         arduino_data = 0
-        list_values.clear()
+        #list_values.clear()
 
         print("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-")
 
